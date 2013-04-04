@@ -1,0 +1,219 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/joint_angles_textview"
+        style="@style/DisplayText"
+        android:layout_width="wrap_content"
+        android:text="0° 90° 0° -90° 90°" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/JointLabels.Right"
+            android:text="-90°" />
+
+        <SeekBar
+            android:id="@+id/joint_1_seek_bar"
+            style="@style/JointSliders" />
+
+        <TextView
+            style="@style/JointLabels"
+            android:text="90°" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/JointLabels.Right"
+            android:text="0°" />
+
+        <SeekBar
+            android:id="@+id/joint_2_seek_bar"
+            style="@style/JointSliders" />
+
+        <TextView
+            style="@style/JointLabels"
+            android:text="180°" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/JointLabels.Right"
+            android:text="-90°" />
+
+        <SeekBar
+            android:id="@+id/joint_3_seek_bar"
+            style="@style/JointSliders" />
+
+        <TextView
+            style="@style/JointLabels"
+            android:text="90°" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/JointLabels.Right"
+            android:text="-180°" />
+
+        <SeekBar
+            android:id="@+id/joint_4_seek_bar"
+            style="@style/JointSliders" />
+
+        <TextView
+            style="@style/JointLabels"
+            android:text="0°" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/JointLabels.Right"
+            android:text="0°" />
+
+        <SeekBar
+            android:id="@+id/joint_5_seek_bar"
+            style="@style/JointSliders" />
+
+        <TextView
+            style="@style/JointLabels"
+            android:text="180°" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/gripper_distance_textview"
+        style="@style/DisplayText"
+        android:text="Gripper 70 mm" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/JointLabels.Right"
+            android:text="0" />
+
+        <SeekBar
+            android:id="@+id/gripper_seek_bar"
+            style="@style/JointSliders"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            style="@style/JointLabels"
+            android:text="70" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:background="@drawable/green_button"
+            style="@style/ColorButton"
+            android:text="Home" />
+        <Button
+            android:background="@drawable/red_button"
+            style="@style/ColorButton"
+            android:text="Position 1" />
+        <Button
+            android:background="@drawable/red_button"
+            style="@style/ColorButton"
+            android:text="Position 2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:background="@drawable/blue_button"
+            style="@style/ColorButton"
+            android:text="Script 1" />
+        <Button
+            android:background="@drawable/blue_button"
+            style="@style/ColorButton"
+            android:text="Script 2" />
+        <Button
+            android:background="@drawable/blue_button"
+            style="@style/ColorButton"
+            android:text="Script 3" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/yellow_button" >
+        
+        <Button
+            android:id="@+id/wheel_speed_stop_button"
+            android:background="@drawable/red_button"
+            style="@style/WheelSpeedButton"
+            android:layout_centerInParent="true"
+            android:text="Stop" />
+
+        <Button
+            android:id="@+id/wheel_speed_forward_button"
+            style="@style/WheelSpeedButton"
+            android:layout_above="@id/wheel_speed_stop_button"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/black_button"
+            android:text="Forward" />
+
+        <Button
+            android:id="@+id/wheel_speed_reverse_button"
+            style="@style/WheelSpeedButton"
+            android:layout_below="@id/wheel_speed_stop_button"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/black_button"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/wheel_speed_left_button"
+            style="@style/WheelSpeedButton"
+            android:layout_alignTop="@id/wheel_speed_forward_button"
+            android:layout_toLeftOf="@id/wheel_speed_stop_button"
+            android:background="@drawable/black_button"
+            android:text="Left" />
+
+        <Button
+            android:id="@+id/wheel_speed_right_button"
+            android:background="@drawable/black_button"
+            android:layout_toRightOf="@id/wheel_speed_stop_button"
+            android:layout_alignTop="@id/wheel_speed_forward_button"
+            style="@style/WheelSpeedButton"
+            android:text="Right" />
+
+        <Button
+            android:id="@+id/battery_voltage_request_button"
+            android:background="@drawable/black_button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="#2FF"
+            style="@style/WheelSpeedButton"
+            android:text="Battery" />
+        
+    </RelativeLayout>
+    
+</LinearLayout>
