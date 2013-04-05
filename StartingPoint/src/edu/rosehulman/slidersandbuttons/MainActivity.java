@@ -1,16 +1,17 @@
-package edu.rosehulman.slidersandbuttons_solution;
+package edu.rosehulman.slidersandbuttons;
 
 import java.util.ArrayList;
 
 import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.TextView;
-import edu.rosehulman.me435.AccessoryActivity;
 
-public class MainActivity extends AccessoryActivity implements OnSeekBarChangeListener {
+public class MainActivity extends Activity implements OnSeekBarChangeListener {
 
 	private ArrayList<SeekBar> mSeekBars = new ArrayList<SeekBar>();
 	private TextView mJointAnglesTextView;
@@ -86,7 +87,7 @@ public class MainActivity extends AccessoryActivity implements OnSeekBarChangeLi
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 		if (!fromUser) {
-			return; // Do nothing if change is not from user.
+			return; // Do nothing if the change is not from the user.
 		}
 		// For simplicity just do a complete UI refresh of the text views.
 		int seekBarValues[] = new int[6];
@@ -109,29 +110,25 @@ public class MainActivity extends AccessoryActivity implements OnSeekBarChangeLi
 		switch(seekBar.getId()) {
 		case R.id.gripper_seek_bar:
 			command = getString(R.string.gripper_command, seekBarValues[0]);
-			sendCommand(command);
 			break;
 		case R.id.joint_1_seek_bar:
 			command = getString(R.string.joint_angle_command, 1, seekBarValues[1]);
-			sendCommand(command);
 			break;
 		case R.id.joint_2_seek_bar:
 			command = getString(R.string.joint_angle_command, 2, seekBarValues[2]);
-			sendCommand(command);
 			break;
 		case R.id.joint_3_seek_bar:
 			command = getString(R.string.joint_angle_command, 3, seekBarValues[3]);
-			sendCommand(command);
 			break;
 		case R.id.joint_4_seek_bar:
 			command = getString(R.string.joint_angle_command, 4, seekBarValues[4]);
-			sendCommand(command);
 			break;
 		case R.id.joint_5_seek_bar:
-			command = getString(R.string.joint_angle_command, 5, seekBarValues[5]);
-			sendCommand(command);
+			command = getString(R.string.joint_angle_command, 5, seekBarValues[5]);			
 			break;
 		}
+		// Uncommend this line to send the slider command.
+//		sendCommand(command);
 	}
 
 	@Override
