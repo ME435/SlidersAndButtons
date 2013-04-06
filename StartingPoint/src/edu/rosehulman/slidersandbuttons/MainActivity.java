@@ -3,8 +3,8 @@ package edu.rosehulman.slidersandbuttons;
 import java.util.ArrayList;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.Activity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -16,6 +16,11 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	private ArrayList<SeekBar> mSeekBars = new ArrayList<SeekBar>();
 	private TextView mJointAnglesTextView;
 	private TextView mGripperDistanceTextView;
+	private Handler mCommandHandler = new Handler(); // Used for scripts
+	
+	private static final String WHEEL_MODE_REVERSE = "REVERSE";
+	private static final String WHEEL_MODE_BRAKE = "BRAKE";
+	private static final String WHEEL_MODE_FORWARD = "FORWARD";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +46,17 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		mSeekBars.get(3).setProgress(joint3Angle + 90); // Joint 3
 		mSeekBars.get(4).setProgress(joint4Angle + 180); // Joint 4
 		mSeekBars.get(5).setProgress(joint5Angle); // Joint 5
+		
+		String jointAnglesStr = getString(R.string.joint_angle_format,
+				joint1Angle + 90, joint2Angle, joint3Angle + 90,
+				joint4Angle + 180, joint5Angle);
+
+		mJointAnglesTextView.setText(jointAnglesStr);
 	}
 	
 	// ------------------------ Button Listeners ------------------------
 	public void handleHomeClick(View view) {
+		updateSlidersForPosition(0, 90, 0, -90, 90);
 		Toast.makeText(this, "TODO: Implement button", Toast.LENGTH_SHORT).show();
 	}
 	public void handlePosition1Click(View view) {
@@ -127,7 +139,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			command = getString(R.string.joint_angle_command, 5, seekBarValues[5]);			
 			break;
 		}
-		// Uncommend this line to send the slider command.
+		// Uncomment this line to send the slider command.
 //		sendCommand(command);
 	}
 
