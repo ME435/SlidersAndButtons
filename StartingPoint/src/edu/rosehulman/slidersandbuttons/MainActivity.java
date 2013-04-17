@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +27,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		mJointAnglesTextView = (TextView) findViewById(R.id.joint_angles_textview);
 		mGripperDistanceTextView = (TextView) findViewById(R.id.gripper_distance_textview);
 		mSeekBars.add((SeekBar) findViewById(R.id.gripper_seek_bar)); // Gripper index 0.
@@ -91,8 +92,9 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	}
 	public void handleBatteryClick(View view) {
 		Toast.makeText(this, "TODO: Implement button", Toast.LENGTH_SHORT).show();
-		// Warning!  This one is harder.  You need to Toast replies.
-		// Do you remember how to receive messages via on onCommandReceived
+		// Need to send BATTERY VOLTAGE REQUEST
+		// Toast all replies.  Arduino will reply with a BATTERY VOLTAGE REPLY.
+		// Receive messages will arrive via onCommandReceived
 	}
 	
 	// ------------------------ OnSeekBarChangeListener ------------------------
