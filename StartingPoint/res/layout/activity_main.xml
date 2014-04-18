@@ -185,8 +185,7 @@
             android:background="@drawable/red_button"
             style="@style/WheelSpeedButton"
             android:layout_centerInParent="true"
-            android:text="Stop"
-            android:onClick="handleStopClick" />
+            android:text="Stop" />
 
         <Button
             android:id="@+id/wheel_speed_forward_button"
@@ -194,8 +193,7 @@
             android:layout_above="@id/wheel_speed_stop_button"
             android:layout_centerHorizontal="true"
             android:background="@drawable/black_button"
-            android:text="Forward"
-            android:onClick="handleForwardClick" />
+            android:text="Forward" />
 
         <Button
             android:id="@+id/wheel_speed_reverse_button"
@@ -203,8 +201,7 @@
             android:layout_below="@id/wheel_speed_stop_button"
             android:layout_centerHorizontal="true"
             android:background="@drawable/black_button"
-            android:text="Back"
-            android:onClick="handleBackClick" />
+            android:text="Back" />
 
         <Button
             android:id="@+id/wheel_speed_left_button"
@@ -212,8 +209,7 @@
             android:layout_alignTop="@id/wheel_speed_forward_button"
             android:layout_toLeftOf="@id/wheel_speed_stop_button"
             android:background="@drawable/black_button"
-            android:text="Left"
-            android:onClick="handleLeftClick" />
+            android:text="Left" />
 
         <Button
             android:id="@+id/wheel_speed_right_button"
@@ -221,8 +217,7 @@
             android:layout_toRightOf="@id/wheel_speed_stop_button"
             android:layout_alignTop="@id/wheel_speed_forward_button"
             style="@style/WheelSpeedButton"
-            android:text="Right"
-            android:onClick="handleRightClick" />
+            android:text="Right" />
 
         <Button
             android:id="@+id/battery_voltage_request_button"
