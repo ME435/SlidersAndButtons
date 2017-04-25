@@ -50,6 +50,11 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
                 joint1Angle, joint2Angle, joint3Angle, joint4Angle, joint5Angle);
         mJointAnglesTextView.setText(jointAnglesStr);
     }
+    
+    public void updateGripperForPosition(int gripperDistance) {
+        mSeekBars.get(0).setProgress(gripperDistance);
+        mGripperDistanceTextView.setText("Gripper " + gripperDistance + "mm");
+    }
 
     // ------------------------ Button Listeners ------------------------
     public void handleHomeClick(View view) {
